@@ -1,14 +1,18 @@
 # semantic.py
 """
 Análisis semántico simple.
-Expone: analyze_semantics(ast) -> {
-    'success': True, 
-    'symbol_table': {...}
-} 
-o {
-    'success': False, 
-    'errors': [...]
-}
+
+Secciones principales:
+1. analyze_semantics(ast):
+   - Entrada: AST (árbol de sintaxis abstracta).
+   - Salida: Diccionario con éxito, tabla de símbolos o errores.
+   - Propósito: Verificar tipos y construir la tabla de símbolos.
+
+2. Función visit(node):
+   - Recorre el AST y realiza verificaciones semánticas.
+
+3. eval_constant(expr):
+   - Evalúa expresiones constantes para optimización.
 """
 
 def analyze_semantics(ast):

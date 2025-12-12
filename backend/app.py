@@ -1,6 +1,16 @@
 """
 API Flask para el Mini-Compilador
 Servidor backend con endpoints RESTful
+
+Secciones principales:
+1. Importaciones: Importa módulos necesarios para Flask, CORS y los componentes del compilador.
+2. Configuración de la aplicación: Configura Flask y habilita CORS para permitir peticiones desde el frontend.
+3. Rutas:
+   - `/`: Ruta de prueba para verificar que el servidor está funcionando.
+   - `/health`: Ruta para verificar el estado del servidor.
+   - `/compile`: Recibe código fuente, lo procesa a través de las fases del compilador y devuelve los resultados.
+   - `/analyze/lexical`: Realiza análisis léxico del código fuente.
+   - `/analyze/syntax`: Realiza análisis sintáctico del código fuente.
 """
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -42,6 +52,7 @@ def home():
 # ==========================
 @app.route('/health', methods=['GET'])
 def health():
+    """Verifica el estado del servidor."""
     return jsonify({'status': 'ok', 'message': 'Mini-Compilador API activa'})
 
 
@@ -52,6 +63,19 @@ def health():
 def compile_code():
     """
     Endpoint principal: compila todo el código
+
+    Se procesa el código fuente a través de las siguientes fases:
+    1. Análisis Léxico: Se obtienen los tokens del código fuente.
+    2. Análisis Sintáctico: Se genera el árbol de sintaxis abstracta (AST).
+    3. Análisis Semántico: Se verifican errores semánticos y se genera la tabla de símbolos.
+    4. Generación de Código Intermedio: Se traduce el AST a un código intermedio.
+    5. Optimización: Se optimiza el código intermedio.
+    6. Generación de Código: Se genera el código final a partir del código optimizado.
+    7. Ejecución: Se ejecuta el código generado.
+
+    Retorna:
+    - Resultado de cada fase del compilador.
+    - Métricas del proceso de compilación.
     """
     try:
         data = request.get_json()
@@ -151,6 +175,13 @@ def compile_code():
 # ==========================
 @app.route('/analyze/lexical', methods=['POST'])
 def analyze_lexical():
+    """
+    Realiza análisis léxico del código fuente.
+
+    Retorna:
+    - Tokens generados.
+    - Cantidad de tokens.
+    """
     try:
         data = request.get_json()
         source_code = data.get('code', '')
@@ -172,6 +203,12 @@ def analyze_lexical():
 # ==========================
 @app.route('/analyze/syntax', methods=['POST'])
 def analyze_syntax():
+    """
+    Realiza análisis sintáctico del código fuente.
+
+    Retorna:
+    - Resultado del análisis sintáctico, incluyendo el AST.
+    """
     try:
         data = request.get_json()
         source_code = data.get('code', '')
@@ -188,6 +225,12 @@ def analyze_syntax():
 # ==========================
 @app.route('/examples', methods=['GET'])
 def get_examples():
+    """
+    Proporciona ejemplos de código para pruebas.
+
+    Retorna:
+    - Lista de ejemplos de código.
+    """
     examples = [
         {
             'name': 'Hola Mundo',

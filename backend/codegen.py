@@ -1,10 +1,18 @@
 # codegen.py
 """
 Generación de "código objeto" y ejecución simple.
-generate_code(optimized_quadruples) -> {'success': True, 'code': optimized_quadruples}
-execute_code(code) -> {'success': True, 'output': '...'}
-Nota: en esta versión simple el 'code' es la lista de cuádruplos optimizados.
-La ejecución se realiza por una VM que interpreta la lista.
+
+Funciones principales:
+1. generate_code(optimized_quadruples):
+   - Entrada: Lista de cuádruplos optimizados.
+   - Salida: Diccionario con éxito y los cuádruplos encapsulados.
+   - Propósito: Preparar los cuádruplos para su ejecución.
+
+2. execute_code(code):
+   - Entrada: Lista de cuádruplos.
+   - Salida: Diccionario con éxito y salida de la ejecución.
+   - Propósito: Ejecutar los cuádruplos en una máquina virtual (VM) simulada.
+   - Detalles: Implementa un ciclo que interpreta cada cuádruplo y mantiene el estado de la VM.
 """
 
 import io

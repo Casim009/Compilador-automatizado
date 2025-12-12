@@ -1,9 +1,17 @@
 # optimizer.py
 """
 Optimizador sencillo:
-- Plegado de constantes (cuando ambos operandos son literales numéricos)
-- Eliminación de asignaciones redundantes (t = t)
-Expone: optimize_code(quadruples) -> {'optimized': [...], 'reduction': X}
+
+Secciones principales:
+1. Función is_number(x):
+   - Verifica si un valor es un número (entero o flotante).
+
+2. optimize_code(quadruples):
+   - Entrada: Lista de cuádruplos.
+   - Salida: Diccionario con cuádruplos optimizados y porcentaje de reducción.
+   - Fases:
+     a. Plegado de constantes: Simplifica operaciones con literales.
+     b. Eliminación de asignaciones redundantes: Remueve asignaciones innecesarias como `t = t`.
 """
 
 def is_number(x):

@@ -1,7 +1,18 @@
 # parser.py
 """
 Parser simple con PLY.
-Expone: parse(source_code) -> {'success': True, 'ast': ...} o {'success': False, 'error': ...}
+
+Secciones principales:
+1. Representación de nodos:
+   - node(type_, **kwargs): Crea nodos serializables para el AST.
+
+2. Precedencias:
+   - Tupla `precedence`: Define la precedencia de operadores como `+`, `*`, `AND`, etc.
+
+3. Gramática:
+   - p_program(p): Regla inicial para el programa.
+   - p_stmt_list_multi(p): Maneja múltiples sentencias.
+   - p_stmt(p): Define las sentencias válidas (declaraciones, asignaciones, etc.).
 """
 
 import ply.yacc as yacc

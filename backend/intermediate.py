@@ -1,6 +1,21 @@
 # intermediate.py
 """
 Generador simple de cuádruplos.
+
+Secciones principales:
+1. Generadores de nombres:
+   - new_temp(): Genera un nuevo nombre temporal único.
+   - new_label(): Genera un nuevo nombre de etiqueta único.
+
+2. Generación de expresiones:
+   - gen_expr(node, quads): Convierte nodos del AST en cuádruplos.
+
+3. Generación de sentencias:
+   - gen_stmt(s, quads): Convierte sentencias del AST en cuádruplos.
+
+4. Entrada principal:
+   - generate_intermediate_code(ast): Punto de entrada para generar cuádruplos a partir del AST.
+
 Expone: generate_intermediate_code(ast) -> {'success': True, 'quadruples': [...]}
 Cuádruplo: (op, arg1, arg2, result)
 op puede ser: '+','-','*','/','assign','print','jfalse','goto','label','and','or','not'
@@ -30,6 +45,7 @@ def new_label():
 # Expresiones
 # --------------------------
 def gen_expr(node, quads):
+    """Convierte nodos de expresiones del AST en cuádruplos."""
     if not isinstance(node, dict):
         raise Exception(f"Nodo inválido en gen_expr: {node}")
 
@@ -76,6 +92,7 @@ def gen_expr(node, quads):
 # Sentencias
 # --------------------------
 def gen_stmt(s, quads):
+    """Convierte sentencias del AST en cuádruplos."""
     ntype = s.get('node')
 
     # --- DECLARACIÓN ---
@@ -139,6 +156,7 @@ def gen_stmt(s, quads):
 # Entrada principal
 # --------------------------
 def generate_intermediate_code(ast):
+    """Punto de entrada para generar cuádruplos a partir del AST."""
     global temp_counter, label_counter
     temp_counter = 0
     label_counter = 0

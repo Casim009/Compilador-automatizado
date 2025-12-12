@@ -1,6 +1,13 @@
 """
 Analizador Léxico para el Mini-Compilador
-Reconoce tokens del lenguaje simplificado
+
+Secciones principales:
+1. Palabras reservadas:
+   - Diccionario `reserved`: Define palabras clave como `int`, `float`, `if`, `else`, etc.
+
+2. Tokens:
+   - Lista de tokens reconocidos por el analizador léxico.
+   - Incluye operadores, delimitadores y literales.
 """
 import ply.lex as lex
 
