@@ -13,17 +13,17 @@ Aquí tienes varios ejemplos organizados por secciones, desde fáciles hasta má
 
 ✅ 1. Operaciones aritméticas básicas
 ➤ Suma, resta, multiplicación y división
-int a = 5;
-int b = 3;
-int suma = a + b;
-int resta = a - b;
-int multi = a * b;
+    int a = 5;
+    int b = 3;
+    int suma = a + b;
+    int resta = a - b;
+    int multi = a * b;
 
-int divi = a / b;
-print(suma);
-print(resta);
-print(multi);
-print(divi);
+    int divi = a / b;
+    print(suma);
+    print(resta);
+    print(multi);
+    print(divi);
 
 ✅ 2. Asignaciones encadenadas
 int x = 4;

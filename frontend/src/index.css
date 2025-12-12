@@ -1,0 +1,162 @@
+/* --- CONFIGURACIÓN GENERAL --- */
+:root {
+    --text-color: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+    --blur-amount: 15px;
+    --accent-font: 'Poppins', sans-serif;
+    --code-font: 'Fira Code', monospace;
+    --primary-color: #1976D2;
+    --secondary-color: #1565C0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--accent-font);
+    color: var(--text-color);
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.main-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(var(--blur-amount));
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+}
+
+header p {
+    font-weight: 400;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #e0e0e0;
+}
+
+/* --- SPLIT LAYOUT --- */
+.split-layout {
+    display: flex;
+    gap: 30px;
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* --- TARJETAS DE VIDRIO --- */
+.glass-card {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+    backdrop-filter: blur(var(--blur-amount));
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    flex: 1 1 45%;
+    min-width: 320px;
+}
+
+/* --- BOTONES --- */
+.pill-btn {
+    padding: 14px 28px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--accent-font);
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.pill-btn.primary {
+    background: var(--primary-color);
+}
+
+.pill-btn.secondary {
+    background: #757575;
+}
+
+.pill-btn:hover {
+    background: var(--secondary-color);
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.pill-btn:active {
+    transform: scale(0.95);
+}
+
+/* --- TEXTAREA --- */
+textarea {
+    width: 100%;
+    height: 250px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    color: var(--text-color);
+    font-family: var(--code-font);
+    padding: 15px;
+    resize: none;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+textarea:focus {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+
+/* --- RESULTADOS --- */
+.output-card {
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    color: var(--text-color);
+    font-family: var(--code-font);
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 400px;
+    flex: 1 1 45%;
+    min-width: 320px;
+}

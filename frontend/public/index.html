@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#1976D2" />
-    <meta
-      name="description"
-      content="Mini-Compilador Interactivo - Lenguajes y Autómatas II"
-    />
-    <title>Mini-Compilador</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      
-      body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-          sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1976D2" />
+  <meta name="description" content="Mini-Compilador Interactivo - Lenguajes y Autómatas II"/>
+  <title>Mini-Compilador</title>
 
-      code {
-        font-family: 'Courier New', monospace;
-      }
-    </style>
-  </head>
-  <body>
-    <noscript>Necesitas habilitar JavaScript para ejecutar esta aplicación.</noscript>
-    <div id="root"></div>
-  </body>
+  <!-- Estilos -->
+  <link rel="stylesheet" href="/src/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <noscript>Necesitas habilitar JavaScript para ejecutar esta aplicación.</noscript>
+
+  <div id="root">
+    <main class="main-container">
+      <!-- Encabezado -->
+      <header class="app-header">
+        <h1>Mini Compilador Web</h1>
+        <p>Editor y resultados en tiempo real</p>
+      </header>
+
+      <!-- Contenedor principal dividido -->
+      <section class="split-layout">
+        <!-- Editor -->
+        <aside class="editor-card glass-card">
+          <h2>Editor de Código</h2>
+          <textarea id="codigoFuente" placeholder="Escribe tu código aquí..." spellcheck="false"></textarea>
+          <div class="button-group">
+            <button class="pill-btn primary" onclick="analizar('lexico')">🔍 Analizar Léxico</button>
+            <button class="pill-btn primary" onclick="analizar('sintactico')">📊 Analizar Sintáctico</button>
+            <button class="pill-btn secondary" onclick="limpiar()">🧹 Limpiar</button>
+          </div>
+        </aside>
+
+        <!-- Resultados -->
+        <section class="output-card glass-card">
+          <h2>Resultados</h2>
+          <div id="resultado" class="placeholder-text">Los resultados aparecerán aquí...</div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <!-- Script externo -->
+  <script src="/static/script.js"></script>
+</body>
 </html>
